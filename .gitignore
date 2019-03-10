@@ -1,0 +1,10 @@
+tellduslive.conf
+secrets.yaml
+known_devices.yaml
+ip_bans.yaml
+home-assistant_v2.db
+home-assistant.log
+.cloud
+.storage
+.ios.conf
+.uuid

@@ -1,0 +1,93 @@
+input_number:
+  belinnemoron_tim:
+    name: Timmar
+    icon: mdi:timer
+    min: 0
+    max: 23
+    step: 1
+    unit_of_measurement: h
+    mode: slider
+  belinnemoron_min:
+    name: Minuter
+    icon: mdi:timer
+    min: 0
+    max: 55
+    step: 5
+    unit_of_measurement: min
+    mode: slider
+  belinnemoroff_tim:
+    name: Timmar
+    icon: mdi:timer
+    min: 0
+    max: 23
+    step: 1
+    unit_of_measurement: h
+    mode: slider
+  belinnemoroff_min:
+    name: Minuter
+    icon: mdi:timer
+    min: 0
+    max: 55
+    step: 5
+    unit_of_measurement: min
+    mode: slider
+  belinnekvon_tim:
+    name: Timmar
+    icon: mdi:timer
+    min: 0
+    max: 23
+    step: 1
+    unit_of_measurement: h
+    mode: slider
+  belinnekvon_min:
+    name: Minuter
+    icon: mdi:timer
+    min: 0
+    max: 55
+    step: 5
+    unit_of_measurement: min
+    mode: slider
+  belinnekvoff_tim:
+    name: Timmar
+    icon: mdi:timer
+    min: 0
+    max: 23
+    step: 1
+    unit_of_measurement: h
+    mode: slider
+  belinnekvoff_min:
+    name: Minuter
+    icon: mdi:timer
+    min: 0
+    max: 55
+    step: 5
+    unit_of_measurement: min
+    mode: slider
+
+input_boolean:
+  belinnemoroff:
+    name: Vid soluppgång
+  belinnekvon:
+    name: Vid solnedgång
+  belinnemorvar:
+    name: Endast vardagar
+    icon: mdi:calendar
+  belinnekvvar:
+    name: Endast vardagar
+    icon: mdi:calendar
+
+sensor:
+  - platform: template
+    sensors:
+      belinnekvoff:
+        friendly_name: 'Släck klockan'
+        value_template: '{% if states.input_number.belinnekvoff_tim.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnekvoff_tim.state|round(0)|string }}:{% if states.input_number.belinnekvoff_min.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnekvoff_min.state|round(0)|string }}'
+      belinnemoroff:
+        friendly_name: 'Släck klockan'
+        value_template: '{% if states.input_number.belinnemoroff_tim.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnemoroff_tim.state|round(0)|string }}:{% if states.input_number.belinnemoroff_min.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnemoroff_min.state|round(0)|string }}'
+      belinnekvon:
+        friendly_name: 'Tänd klockan'
+        value_template: '{% if states.input_number.belinnekvon_tim.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnekvon_tim.state|round(0)|string }}:{% if states.input_number.belinnekvon_min.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnekvon_min.state|round(0)|string }}'
+      belinnemoron:
+        friendly_name: 'Tänd klockan'
+        value_template: '{% if states.input_number.belinnemoron_tim.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnemoron_tim.state|round(0)|string }}:{% if states.input_number.belinnemoron_min.state|round(0)|string|length == 1 %}0{% endif %}{{ states.input_number.belinnemoron_min.state|round(0)|string }}'

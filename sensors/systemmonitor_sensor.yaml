@@ -1,0 +1,12 @@
+platform: systemmonitor
+resources:
+  - type: disk_use_percent
+    arg: /home
+  - type: memory_free
+  - type: network_in
+    arg: eth0
+  - type: network_out
+    arg: eth0
+  - type: load_5m
+  - type: processor_use
+  - type: memory_use_percent

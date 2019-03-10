@@ -1,0 +1,221 @@
+# Start
+start:
+  name: Start
+  view: true
+  icon: mdi:windows
+  entities:
+    - group.time_and_date
+    - group.vkweather
+    - group.belute_rt
+    - group.belinne_rt
+    - group.beltimer_inne
+    - group.beltimer_ute
+    - group.alarm
+    
+time_and_date:
+  name: Tid och datum
+  control: hidden
+  entities:
+    - sensor.time
+    - sensor.date
+
+# Belysning
+belysning:
+  name: Belysning
+  view: true
+  icon: mdi:lightbulb-on-outline
+  entities:
+    - group.belute_rt
+    - group.belinne_rt
+    - group.beltimer_inne
+    - group.beltimer_ute
+beltimer_ute:
+  name: Timer belysning ute
+  entities:
+    - automation.slack_ute_kl_22
+    - automation.slack_ute_vid_soluppgang
+    - automation.tand_ute_kl_5
+    - automation.tand_ute_vid_solnedgang
+beltimer_inne:
+  name: Timer belysning inne
+  entities:
+    - automation.slack_innebelysning_kl_22
+    - automation.slack_vardagar_inne_kl_7
+    - automation.tand_inne_vardagar_kl_5
+    - automation.tand_vardagar_inne_kl_16
+belinne_rt:
+  name: Belysning inne RT
+  entities:
+    - switch.ljusvagg_rt
+    - switch.katthuvud_rt
+    - switch.badrum_rt
+    - switch.hjarta_rt
+    - switch.laga_rummet_2
+belute_rt:
+  name: Belysning ute RT
+  entities:
+    - switch.baksida_rt
+#    - switch.carport_rt
+    - switch.framsida_rt
+
+# Väder och klimat
+weather-and-climate:
+  name: Väder och klimat
+  view: true
+  icon: mdi:air-conditioner
+  entities:
+    - group.vklagarummet
+    - group.vkmittenrummet
+    - group.vkhogarummet
+    - group.vksovrummet
+    - group.vkstugan
+    - group.vkkok
+    - group.vkute
+vkweather:
+  name: Väder
+  control: hidden
+  entities:
+    - weather.smhi_oxeryd
+vklagarummet:
+  name: Låga rummet
+  control: hidden
+  entities:
+    - climate.melissa_wg9e73919abd
+    - sensor.melissa_wg9e73919abd_temperature
+    - sensor.melissa_wg9e73919abd_humidity
+vkhogarummet:
+  name: Höga rummet
+  control: hidden
+  entities:
+    - sensor.matsal_temperature
+    - sensor.matsal_humidity
+vkmittenrummet:
+  name: TV-rummet
+  entities:
+    - climate.melcloud_tv_rum_99216
+vksovrummet:
+  name: Sovrummet
+  control: hidden
+  entities:
+    - sensor.sovrum_temperature
+    - sensor.sovrum_humidity
+vkstugan:
+  name: Stugan
+  control: hidden
+  entities:
+    - sensor.gaststuga_temperature
+    - sensor.gaststuga_temperature_2
+    - sensor.gaststuga_humidity
+vkkok:
+  name: "Kök"
+  entities:
+    - sensor.kok_temperature
+    - sensor.koksskap_temperature_2
+    - sensor.koksskap_humidity_2
+vkute:
+  name: Ute
+  entities:
+    - sensor.utomhus_temperature_2
+    - sensor.utomhus_humidity_2
+
+# Motorvärmare
+heater_view:
+  view: yes
+  name: heater
+  icon: mdi:car
+  entities:
+    - group.heater
+# option to show the automations and scripts that controls the heater 
+#      - group.heater_controls
+heater:
+  control: hidden
+  name: "Motorvärmare"
+  entities:
+    - sensor.departuretime
+    - sensor.heater_start_time
+    - input_number.heater_hour
+    - input_number.heater_minutes
+    - sensor.ute_temp_rt_temperature
+    - switch.motorvarmare_rt
+    - input_boolean.heaterstatus
+    - input_boolean.heaterweekday
+
+heater_controls:
+  name: "Styrning"
+  entities:
+    - automation.heater_enabled
+    - automation.heater_off
+    - automation.heater_plus_10
+    - automation.heater_plus_1
+    - script.heater_on
+
+# Multimedia
+musikochtv:
+  name: Musik och TV
+  view: true
+  icon: mdi:airplay
+  entities:
+    - group.mmtvrum
+mmtvrum:
+  name: TV-rum
+  entities:
+    - media_player.volumio_volumio_dac_local
+
+#misc
+alarm:
+  name: Verisure larm
+  entities:
+    - alarm_control_panel.lottas_vag_alarm
+
+# System
+system:
+  name: System
+  view: true
+  icon: mdi:settings
+  entities:
+    - group.ssystem
+    - group.sdevices
+    - group.snetwork
+ssystem:
+  name: System
+  icon: mdi:settings
+  entities:
+    - sensor.disk_use_percent_home
+    - sensor.network_in_wlan0
+    - sensor.network_out_wlan0
+    - sensor.memory_free
+    - sensor.memory_use_percent
+    - sensor.processor_use
+sdevices:
+  name: Enheter
+  entities:
+    - device_tracker.iphone
+    - sensor.iphone_battery_level
+    - sensor.iphone_battery_state
+    - device_tracker.ciasiphone
+snetwork:
+  name: Nätverk
+  entities:
+    - sensor.lyra_bytes_received
+    - sensor.lyra_bytes_sent
+    - sensor.lyra_kbyte_sec_received
+    - sensor.lyra_kbyte_sec_sent
+    - sensor.lyra_packets_received
+    - sensor.lyra_packets_sent
+
+# Praktiska grupper
+belinne_on:
+  name: Innebelysning automation på
+  entities:
+    - switch.ljusvagg_rt
+    - switch.katthuvud_rt
+    - switch.laga_rummet_2
+
+belinne_off:
+  name: Innebelysning automation av
+  entities:
+    - switch.laga_rummet_2
+    - switch.badrum_rt
+    - switch.hjarta_rt
+    - switch.ljusvagg_rt
+    - switch.katthuvud_rt

@@ -1,0 +1,29 @@
+device_tracker.brwacd1b86fadda:
+  friendly_name: "Skrivare Brother"
+  icon: mdi:printer-wireless
+climate.melissa_wg9e73919abd:
+  friendly_name: "Luftvärmepump"
+  icon: mdi:air-conditioner
+device_tracker.melissaba843a:
+  friendly_name: Melissa
+  icon: mdi:air-conditioner
+sensor.melissa_wg9e73919abd_humidity:
+  friendly_name: Luftfuktighet
+  icon: mdi:water-percent
+sensor.melissa_wg9e73919abd_temperature:
+  friendly_name: Temperatur
+  icon: mdi:oil-temperature
+sensor.gaststuga_humidity:
+  friendly_name: Luftfuktighet
+sensor.gaststuga_temperature:
+  friendly_name: "Temperatur fönster"
+sensor.gaststuga_temperature_2:
+  friendly_name: "Temperatur tak"
+sensor.kok_temperature:
+  friendly_name: "Temperatur"
+sensor.matsal_humidity:
+  friendly_name: Luftfuktighet
+sensor.matsal_temperature:
+  friendly_name: Temperatur
+climate.melcloud_tvrum_99216:
+  friendly_name: Luftvärmepump TV-rum

@@ -1,0 +1,6 @@
+#- platform: ffmpeg
+#  name: Livingroom Camera
+#  still_image_url: !secret cam_1_still_image_url
+#  username: !secret cam_1_username
+#  password: !secret cam_1_password
+#  input: !secret cam_1_input

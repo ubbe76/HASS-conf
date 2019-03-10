@@ -1,0 +1,7 @@
+platform: rfxtrx
+#automatic_add: True
+devices:
+  0a5209009700001e5a0359:
+    name: Ute temp rt
+  0a52090d8700006d3e0169:
+    name: Köksskåp temp rt

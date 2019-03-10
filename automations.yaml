@@ -1,0 +1,122 @@
+- id: '1547997728404'
+  alias: Tänd ute morgon
+  trigger:
+  - at: '05:30:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: group.belute_rt
+    service: homeassistant.turn_on
+- id: '1547997788056'
+  alias: Släck ute morgon
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: group.belute_rt
+    service: homeassistant.turn_off
+- id: '1547997831235'
+  alias: Tänd ute kväll
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: group.belute_rt
+    service: homeassistant.turn_on
+- id: '1547997877474'
+  alias: Släck ute kväll
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: group.belute_rt
+    service: homeassistant.turn_off
+- id: '1548015603511'
+  alias: Tänd inne morgon
+  trigger:
+  - at: 05:30:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: group.belinne_on
+    service: homeassistant.turn_on
+- id: '1548016002316'
+  alias: Släck inne morgon
+  trigger:
+  - at: 06:20:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: group.belinne_off
+    service: homeassistant.turn_off
+- id: '1548016095933'
+  alias: Tänd inne kväll
+  trigger:
+  - at: '16:45:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: group.belinne_on
+    service: homeassistant.turn_on
+- id: '1548016154507'
+  alias: Släck inne kväll
+  trigger:
+  - at: '22:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: group.belinne_off
+    service: homeassistant.turn_off
+- id: '1549056067429'
+  alias: Läckagekoll
+  trigger:
+  - entity_id: binary_sensor.kallare
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: LÄCKAGE I GRUNDEN
+    service: notify.ios_urbans_iphone
+- id: '1549119123314'
+  alias: Ytterdörr
+  trigger:
+  - entity_id: binary_sensor.device_18
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: device_tracker.urbans_iphone
+    state: 'not_home'
+  action:
+  - data:
+      message: Ytterdörren öppnades
+    service: notify.ios_urbans_iphone

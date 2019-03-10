@@ -1,0 +1,10 @@
+- host: !secret atv_sovrum_ip
+  login_id: !secret atv_sovrum_login
+  credentials: !secret atv_sovrum_credentials
+  name: Apple TV sovrum
+  start_off: true
+- host: !secret atv_mittenrummet_ip
+  login_id: !secret atv_mittenrummet_login
+  credentials: !secret atv_mittenrummet_credentials
+  name: Apple TV TV-rum
+  start_off: true

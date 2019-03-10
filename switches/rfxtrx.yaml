@@ -1,0 +1,19 @@
+platform: rfxtrx
+automatic_add: True
+devices:
+  0b11007b00c492b501010f50:
+    name: Baksida rt
+  0b1100d302679be701010f60:
+    name: Carport rt
+  0b11002c002edb3701010f50:
+    name: Framsida rt
+  0b11003a0325dbba01000050:
+    name: Ljusvägg rt
+  0b11003e036da88e01000060:
+    name: Katthuvud rt
+  0b11004403e47d6e01000050:
+    name: Hjärta rt
+  0b110049010a515c01010f50:
+    name: Badrum rt
+  0b1100a401cfbae201010f50:
+    name: Motorvärmare rt
